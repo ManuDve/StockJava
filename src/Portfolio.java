@@ -10,11 +10,12 @@ public class Portfolio {
         this.stockList = new ArrayList<>();
     }
 
-    public int calculateProfit(LocalDate startDate, LocalDate endDate){
+    public int calculateProfit(LocalDate startDate, LocalDate endDate) {
         int startDateValue = getSumOfStockValues(startDate);
         int endDateValue = getSumOfStockValues(endDate);
         return endDateValue - startDateValue;
-    };
+    }
+
 
     public int getSumOfStockValues(LocalDate date) {
         int sum = 0;
@@ -39,12 +40,13 @@ public class Portfolio {
 
     // Para el rendimiento anualizado tuve que encontrar una fórmula que no comprendo del todo en https://www.businessinsider.com/personal-finance/investing/roi
     // A = (EV/BV) ** 1/n - 1
+
     public double calculateAnnualizedReturn(LocalDate startDate, LocalDate endDate) {
         int startDateValue = getSumOfStockValues(startDate);
         int endDateValue = getSumOfStockValues(endDate);
         // .25 para considerar años bisiestos
         double yearsBeetweenDates = (endDate.toEpochDay() - startDate.toEpochDay()) / 365.25;
-        return Math.pow(((double) endDateValue/startDateValue), 1/yearsBeetweenDates) - 1;
+        return Math.pow(((double) endDateValue / startDateValue), 1 / yearsBeetweenDates) - 1;
     }
 
     public void printAnnualizedReturnBetweenDates(LocalDate startDate, LocalDate endDate) {
@@ -54,9 +56,6 @@ public class Portfolio {
         double annualizedReturn = calculateAnnualizedReturn(startDate, endDate);
         System.out.println("Retorno anualizado de: " + annualizedReturn + "%");
     }
-
-
-
 
 
 }

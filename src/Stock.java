@@ -27,7 +27,7 @@ public class Stock {
             }
             counter++;
         }
-        // No se encuentra la fecha, no estaba seguro si colocar 0 o -1
+        // No se encuentra la fecha, no estaba seguro si colocar 0, -1 u otra opción
         return 0;
     }
 
